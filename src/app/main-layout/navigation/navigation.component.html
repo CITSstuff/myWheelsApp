@@ -1,0 +1,96 @@
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <div class="sidebar-fixed position-fixed ">
+
+        <a class="logo-wrapper waves-effect" routerLink="dashboards/v1">
+            <img style="margin-left: 1em; border-radius: 40%; height:100%; display:block" src="../../../assets/img/logo.jpeg" class="img-fluid" alt="../../../assets/img/noIMG.PNG">
+
+            <label id="admin_name">
+                <h5>Nemrod Mkhize
+                </h5>
+            </label>
+            <span class="dark-blue-text">
+                <i class="fa fa-user-secret centerx"></i>
+            </span>
+        </a>
+
+        <div class="list-group list-group-flush">
+
+            <a routerLink="dashboards/v1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-dashboard mr-3"></i>Reports
+            </a>
+            <a routerLink="dashboard" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-calendar-o mr-3"></i>Reserve
+            </a>
+            <a routerLink="profiles/profile1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-car mr-3"></i>Fleet</a>
+            <a routerLink="tables/table1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-arrows-h mr-3"></i>Extentions</a>
+            <a routerLink="tables/clients" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-user mr-3"></i>Clients</a>
+            <a routerLink="tables/allocated" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-road mr-3" aria-hidden="true"></i>Allocated</a>
+            <a routerLink="maps/map1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-map mr-3"></i>Whereabouts</a>
+            <a routerLink="nonExistingPath" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-exclamation mr-3"></i>404</a>
+
+        </div>
+    </div>
+    <!-- Sidebar -->
+
+    <!--Navbar-->
+    <mdb-navbar [containerInside]="false" SideClass="navbar navbar-expand-lg navbar-light white">
+
+        <!-- Navbar brand -->
+        <logo class="ml-3">
+            <span class="dark-blue-text">
+                <i class="fa fa-bars fa-1x"></i>
+            </span>
+        </logo>
+
+        <!-- Collapsible content -->
+        <links>
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" mdbWavesEffect>Quick reserve
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" mdbWavesEffect>Returns</a>
+                    <!-- href="https://mdbootstrap.com/angular/angular-bootstrap-getting-started/" -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" mdbWavesEffect>Print Stocksheet</a>
+                    <!-- href="https://mdbootstrap.com/angular/getting-started/"  -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" mdbWavesEffect>Change Over</a>
+                    <!-- href="https://mdbootstrap.com/angular/angular-tutorial/"  -->
+                </li>
+            </ul>
+            <!-- Links -->
+
+            <!-- Search form -->
+            <ul class="navbar-nav nav-flex-icons">
+
+                    <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    </div>
+                <li class="nav-item">
+                    <a href="https://mdbootstrap.com/product/angular-bootstrap-pro/" class="ml-1 nav-link border border-light rounded" mdbWavesEffect>
+                        <i class="fa fa-sign-out left"></i> Logout</a>
+                </li>
+            </ul>
+        </links>
+        <!-- Collapsible content -->
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+
+</header>
+<!--Main Navigation-->
