@@ -27,6 +27,7 @@ import { ColorsComponent } from './css/colors/colors.component';
 import { ShadowComponent } from './css/shadow/shadow.component';
 import { Profile1Component } from './profile/profile1/profile1.component';
 import { HelpComponent } from './help/help.component';
+import { ClientComponent } from './client/client.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { HelpComponent } from './help/help.component';
     ShadowComponent,
     Profile1Component,
     HelpComponent,
+    ClientComponent,
 
   ],
   exports: [
