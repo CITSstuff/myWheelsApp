@@ -8,33 +8,68 @@ import { ModuleWithProviders } from '@angular/core';
 import { NotFoundComponent } from './views/errors/not-found/not-found.component';
 import { Dashboard1Component } from './views/dashboards/dashboard1/dashboard1.component';
 import { ClientComponent } from 'app/views/client/client.component';
+import { ReservationComponent } from './views/reservation/reservation.component';
+import { ExtentionsComponent } from './views/extentions/extentions.component';
+import { TrackComponent } from './views/track/track.component';
+import { AllocatedComponent } from './views/allocated/allocated.component';
+import { FleetComponent } from './views/fleet/fleet.component';
 
 
 const routes: Route[] = [
-  { path: '', pathMatch: 'full', redirectTo: 'dashboards/v1' },
-  { path: 'dashboards', children:
+  { path: '', pathMatch: 'full', redirectTo: 'dashboards' },
+  {
+    path: 'dashboards', children:
+      [
+        { path: '', component: Dashboard1Component },
+      ]
+  },
+  {
+    path: 'allocated', children:
+      [
+        { path: '', component: AllocatedComponent },
+      ]
+  },
+  {
+    path: 'fleet', children:
+      [
+        { path: '', component: FleetComponent },
+      ]
+  },
+  {
+    path: 'extentions', children:
+      [
+        { path: '', component: ExtentionsComponent },
+      ]
+  },
+  {
+    path: 'tables', children:
+      [
+        { path: 'table1', component: BasicTableComponent },
+      ]
+  },
+  {
+    path: 'track', children:
+      [
+        { path: '', component: TrackComponent },
+      ]
+  },
+  { path: 'clients', children:
     [
-      { path: 'v1', component: Dashboard1Component },
+      { path: '', component: ClientComponent},
     ]
   },
-  { path: 'profiles', children:
+  { path: 'extentions', children:
     [
-      { path: 'profile1', component: Profile1Component },
+      { path: '', component: ExtentionsComponent},
     ]
   },
-  { path: 'tables', children:
-    [
-      { path: 'table1', component: BasicTableComponent },
-    ]
+  {
+    path: 'reservation', children:
+      [
+        { path: '', component: ReservationComponent },
+      ]
   },
-  { path: 'clients', component: ClientComponent},
-  /*{ path: 'clients', children:
-    [
-      { path: 'clients', component: ClientComponent},
-    ]
-  },*/
-
-  { path: 'modals', component: ModalsComponent},
+  { path: 'modals', component: ModalsComponent },
   { path: '**', component: NotFoundComponent },
 
 ];

@@ -28,6 +28,11 @@ import { ShadowComponent } from './css/shadow/shadow.component';
 import { Profile1Component } from './profile/profile1/profile1.component';
 import { HelpComponent } from './help/help.component';
 import { ClientComponent } from './client/client.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ExtentionsComponent } from './extentions/extentions.component';
+import { AllocatedComponent } from './allocated/allocated.component';
+import { TrackComponent } from './track/track.component';
+import { FleetComponent } from './fleet/fleet.component';
 
 
 @NgModule({
@@ -63,6 +68,11 @@ import { ClientComponent } from './client/client.component';
     Profile1Component,
     HelpComponent,
     ClientComponent,
+    ReservationComponent,
+    ExtentionsComponent,
+    AllocatedComponent,
+    TrackComponent,
+    FleetComponent,
 
   ],
   exports: [
