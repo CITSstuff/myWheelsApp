@@ -33,6 +33,7 @@ import { ExtentionsComponent } from './extentions/extentions.component';
 import { AllocatedComponent } from './allocated/allocated.component';
 import { TrackComponent } from './track/track.component';
 import { FleetComponent } from './fleet/fleet.component';
+import { MovementComponent } from './movement/movement.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { FleetComponent } from './fleet/fleet.component';
     AllocatedComponent,
     TrackComponent,
     FleetComponent,
+    MovementComponent,
 
   ],
   exports: [

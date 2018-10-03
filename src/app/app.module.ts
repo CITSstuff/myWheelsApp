@@ -27,6 +27,7 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
     NavigationModule,
     AppRoutes,
     RouterModule,
+    
     FormsModule,
     SharedModule,
     ViewsModule,

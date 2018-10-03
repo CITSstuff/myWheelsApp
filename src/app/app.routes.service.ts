@@ -13,6 +13,7 @@ import { ExtentionsComponent } from './views/extentions/extentions.component';
 import { TrackComponent } from './views/track/track.component';
 import { AllocatedComponent } from './views/allocated/allocated.component';
 import { FleetComponent } from './views/fleet/fleet.component';
+import { MovementComponent } from './views/movement/movement.component';
 
 
 const routes: Route[] = [
@@ -27,6 +28,12 @@ const routes: Route[] = [
     path: 'allocated', children:
       [
         { path: '', component: AllocatedComponent },
+      ]
+  },
+  {
+    path: 'movement', children:
+      [
+        { path: '', component: MovementComponent },
       ]
   },
   {
