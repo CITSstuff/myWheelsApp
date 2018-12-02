@@ -27,13 +27,6 @@ import { ColorsComponent } from './css/colors/colors.component';
 import { ShadowComponent } from './css/shadow/shadow.component';
 import { Profile1Component } from './profile/profile1/profile1.component';
 import { HelpComponent } from './help/help.component';
-import { ClientComponent } from './client/client.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ExtentionsComponent } from './extentions/extentions.component';
-import { AllocatedComponent } from './allocated/allocated.component';
-import { TrackComponent } from './track/track.component';
-import { FleetComponent } from './fleet/fleet.component';
-import { MovementComponent } from './movement/movement.component';
 
 
 @NgModule({
@@ -68,13 +61,6 @@ import { MovementComponent } from './movement/movement.component';
     ShadowComponent,
     Profile1Component,
     HelpComponent,
-    ClientComponent,
-    ReservationComponent,
-    ExtentionsComponent,
-    AllocatedComponent,
-    TrackComponent,
-    FleetComponent,
-    MovementComponent,
 
   ],
   exports: [
