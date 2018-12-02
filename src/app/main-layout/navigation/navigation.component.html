@@ -4,8 +4,7 @@
     <div class="sidebar-fixed position-fixed ">
 
         <a class="logo-wrapper waves-effect" routerLink="dashboards/v1">
-            <img style="margin-left: 1em; border-radius: 40%; height:100%; display:block" src="../../../assets/img/logo.jpeg"
-                class="img-fluid" alt="../../../assets/img/noIMG.PNG">
+            <img style="margin-left: 1em; border-radius: 40%; height:100%; display:block" src="../../../assets/img/logo.jpeg" class="img-fluid" alt="../../../assets/img/noIMG.PNG">
 
             <label id="admin_name">
                 <h5>Nemrod Mkhize
@@ -18,23 +17,21 @@
 
         <div class="list-group list-group-flush">
 
-            <a routerLink="dashboards/" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="dashboards/v1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-dashboard mr-3"></i>Reports
             </a>
-            <a routerLink="reservation" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="dashboard" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-calendar-o mr-3"></i>Reserve
             </a>
-            <a routerLink="fleet" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="profiles/profile1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-car mr-3"></i>Fleet</a>
-            <a routerLink="extentions" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="tables/table1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-arrows-h mr-3"></i>Extentions</a>
-            <a routerLink="clients" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="tables/clients" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-user mr-3"></i>Clients</a>
-            <a routerLink="allocated" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="tables/allocated" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-road mr-3" aria-hidden="true"></i>Allocated</a>
-            <a routerLink="movement" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-                <i class="fa fa-exchange mr-3" aria-hidden="true"></i>Movement</a>
-            <a routerLink="track" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+            <a routerLink="maps/map1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-map mr-3"></i>Whereabouts</a>
             <a routerLink="nonExistingPath" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-exclamation mr-3"></i>404</a>
@@ -81,12 +78,11 @@
             <!-- Search form -->
             <ul class="navbar-nav nav-flex-icons">
 
-                <div class="md-form my-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                </div>
+                    <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    </div>
                 <li class="nav-item">
-                    <a href="https://mdbootstrap.com/product/angular-bootstrap-pro/" class="ml-1 nav-link border border-light rounded"
-                        mdbWavesEffect>
+                    <a href="https://mdbootstrap.com/product/angular-bootstrap-pro/" class="ml-1 nav-link border border-light rounded" mdbWavesEffect>
                         <i class="fa fa-sign-out left"></i> Logout</a>
                 </li>
             </ul>

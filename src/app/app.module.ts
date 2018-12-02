@@ -9,6 +9,7 @@ import { AppRoutes } from './app.routes.service';
 
 import { ViewsModule } from './views/views.module';
 import { SharedModule } from './shared/shared.module';
+import { MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
 import { ErrorModule } from './views/errors/error.module';
 
 // main layout
@@ -27,15 +28,17 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
     NavigationModule,
     AppRoutes,
     RouterModule,
-    
     FormsModule,
+    MatAutocompleteModule, 
+    MatFormFieldModule,
     SharedModule,
     ViewsModule,
     ErrorModule,
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+  MatAutocompleteModule,],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
 })
