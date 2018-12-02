@@ -1,0 +1,128 @@
+<div class="row d-flex">
+  <!-- specify if custommer is new or not-->
+  <div class="form-check mb-4">
+    <input type="checkbox" class="form-check-input" id="new_cus_check" checked="">
+    <label class="form-check-label" for="new_cus_check">New customer</label>
+</div>
+ 
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="pick existing client" aria-label="client" [matAutocomplete]="auto" [formControl]="clientCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let client of filteredClients | async" [value]="client.name">
+        <img class="example-option-img" aria-hidden [src]="client.dp" height="25">
+        <span>{{client.name}}</span> |
+        <small>tokens: {{client.tokens}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <!-- <select class="mdb-select mdb-form"  Search searchable="Search here.."> -->
+  <!-- <select class="mdb-select" searchable="Search here..">
+    <option value="" disabled selected>Pick client for reservation</option>
+    <option value="1">Mhlengi</option>
+    <option value="2">Olwethu</option>
+    <option value="3">Elinye iklayenti leli </option> -->
+    <!-- <option *ngFor="let car of cars">{{car.plate}}</option> -->
+  <!-- </select> -->
+
+</div>
+
+<!--Projects section v.2-->
+<section class="section text-center pb-3">
+  <!--Grid row-->
+  <div class="row d-flex justify-content-center">
+
+    <!--Grid column-->
+    <div class="col-lg-6 col-xl-5 mb-3">
+
+      <!-- Default form login -->
+      <form class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">Movement Out</p>
+
+        <p class="h6 mb-4">NJ 125</p>
+
+        <div>
+          <label class="row d-flex justify-content-left">Driver</label>
+          <input type="text" id="Driver_name" class="form-control mb-4" placeholder="Driver">
+        </div>
+        <div>
+          <label class="row d-flex justify-content-left">Reason</label>
+          <input type="text" id="Reason" class="form-control mb-4" placeholder="Reason">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Fuel out</label>
+          <input type="text" id="Fuel_out" class="form-control mb-4" placeholder="Fuel out">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Km out</label>
+          <input type="text" id="Km_out" class="form-control mb-4" placeholder="Km out">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Damages</label>
+          <input type="text" id="Damage" class="form-control mb-4" placeholder="Damage">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Date time out</label>
+          <input type="text" id="Data_out" class="form-control mb-4" placeholder="Date-Time out">
+        </div>
+
+        <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-folder-open"></i></button>
+        <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-edit"></i></button>
+        <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-check"></i></button>
+
+      </form>
+
+    </div>
+    <!--Grid column-->
+
+    <!-- Default form login -->
+
+    <!-- Default form login -->
+
+
+    <!--Grid column-->
+    <div class="col-lg-6 col-xl-5 mb-3">
+      <form class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">Movement In</p>
+
+        <p class="h6 mb-4">NJ 125</p>
+
+        <div>
+          <label class="row d-flex justify-content-left">Driver</label>
+          <input type="text" id="Driver_name" class="form-control mb-4" placeholder="Driver">
+        </div>
+        <div>
+          <label class="row d-flex justify-content-left">Reason</label>
+          <input type="text" id="Reason" class="form-control mb-4" placeholder="Reason">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Fuel in</label>
+          <input type="text" id="Fuel_out" class="form-control mb-4" placeholder="Fuel in">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Km in</label>
+          <input type="text" id="Km_out" class="form-control mb-4" placeholder="Km in">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Damages</label>
+          <input type="text" id="Damage" class="form-control mb-4" placeholder="Damage">
+        </div>
+        <div>
+            <label class="row d-flex justify-content-left">Date time in</label>
+          <input type="text" id="Data_out" class="form-control mb-4" placeholder="Date-Time in">
+        </div>
+
+        <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-folder-open"></i></button>
+        <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-edit"></i></button>
+        <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-check"></i></button>
+
+
+      </form>
+
+    </div>
+    <!--Grid column-->
+    <!-- Default form login -->
+  </div>
+</section>
