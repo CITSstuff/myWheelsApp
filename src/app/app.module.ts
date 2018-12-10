@@ -27,9 +27,7 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
     BrowserAnimationsModule,
     NavigationModule,
     AppRoutes,
-    RouterModule,
-    FormsModule,
-    MatAutocompleteModule, 
+    RouterModule, 
     MatFormFieldModule,
     SharedModule,
     ViewsModule,
@@ -37,8 +35,6 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [
-  MatAutocompleteModule,],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
 })

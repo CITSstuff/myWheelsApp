@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
@@ -27,6 +27,14 @@ import { ColorsComponent } from './css/colors/colors.component';
 import { ShadowComponent } from './css/shadow/shadow.component';
 import { Profile1Component } from './profile/profile1/profile1.component';
 import { HelpComponent } from './help/help.component';
+import { AllocatedComponent } from './allocated/allocated.component';
+import { MovementComponent } from './movement/movement.component';
+import { FleetComponent } from './fleet/fleet.component';
+import { ExtentionsComponent } from './extentions/extentions.component';
+import { TrackComponent } from './track/track.component';
+import { ClientComponent } from './client/client.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { MatAutocompleteModule } from '@angular/material';
 
 
 @NgModule({
@@ -35,6 +43,8 @@ import { HelpComponent } from './help/help.component';
     RouterModule,
     FormsModule,
     BrowserModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
     BrowserAnimationsModule,
     SharedModule,
     AgmCoreModule.forRoot({
@@ -48,8 +58,15 @@ import { HelpComponent } from './help/help.component';
     BasicTableComponent,
     ModalsComponent,
     TypographyComponent,
+    AllocatedComponent,
     IconsComponent,
     Map1Component,
+    MovementComponent,
+    FleetComponent,
+    ExtentionsComponent,
+    ClientComponent,
+    ReservationComponent,
+    TrackComponent,
     StatsCardComponent,
     StatsCard2Component,
     Dashboard1Component,
@@ -71,6 +88,8 @@ import { HelpComponent } from './help/help.component';
     IconsComponent,
     Map1Component,
     StatsCardComponent,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
     StatsCard2Component,    
     Dashboard1Component,
     GridComponent,
@@ -81,6 +100,8 @@ import { HelpComponent } from './help/help.component';
     ShadowComponent,
 
   ],
+  providers: [
+  FormsModule,],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class ViewsModule { }
