@@ -1,34 +1,52 @@
 <div class="row d-flex">
   <!-- specify if custommer is new or not-->
-  <div class="form-check mb-4">
-    <input type="checkbox" class="form-check-input" id="new_cus_check" checked="">
-    <label class="form-check-label" for="new_cus_check">New customer</label>
-</div>
- 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="pick existing client" aria-label="client" [matAutocomplete]="auto" [formControl]="clientCtrl">
+  <div class="form-check mb-6" (click)="isChecked = !isChecked">
+    <input type="checkbox" class="form-check-input" id="new_cus_check" unchecked>
+    <label class="form-check-label pt-1 pl-2" for="new_cus_check">Create customer</label>
+  </div>
+
+  <form *ngIf="!isChecked" class="mt-3 example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick an existing client" aria-label="Number" matInput [formControl]="myControl"
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let clientOption of filteredOptions | async" [value]="clientOption">
+          {{clientOption}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <form class="example-container w-20 pt-1" *ngIf="isChecked">
+    <mat-form-field>
+      <input matInput placeholder="Client name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Client surname">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="sex">
+        <mat-option value="male"> Male</mat-option>
+        <mat-option value="female"> Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <!-- <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick an existing client" aria-label="Number" matInput [myControl]="clientCtrl" [matAutocomplete]="auto" >
+  </mat-form-field>
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let client of filteredClients | async" [value]="client.name">
         <img class="example-option-img" aria-hidden [src]="client.dp" height="25">
         <span>{{client.name}}</span> |
         <small>tokens: {{client.tokens}}</small>
       </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-
-  <!-- <select class="mdb-select mdb-form"  Search searchable="Search here.."> -->
-  <!-- <select class="mdb-select" searchable="Search here..">
-    <option value="" disabled selected>Pick client for reservation</option>
-    <option value="1">Mhlengi</option>
-    <option value="2">Olwethu</option>
-    <option value="3">Elinye iklayenti leli </option> -->
-    <!-- <option *ngFor="let car of cars">{{car.plate}}</option> -->
-  <!-- </select> -->
-
+    </mat-autocomplete> -->
 </div>
 
 <!--Projects section v.2-->
 <section class="section text-center pb-3">
+
   <!--Grid row-->
   <div class="row d-flex justify-content-center">
 
@@ -38,32 +56,33 @@
       <!-- Default form login -->
       <form class="text-center border border-light p-5">
 
-        <p class="h4 mb-4">Movement Out</p>
+        <p class="h4 mb-4">Reservation for:</p>
 
-        <p class="h6 mb-4">NJ 125</p>
+        <p class="h6 mb-4">New Client, Nemrod</p>
 
         <div>
-          <label class="row d-flex justify-content-left">Driver</label>
-          <input type="text" id="Driver_name" class="form-control mb-4" placeholder="Driver">
+          <label class="row d-flex justify-content-left">Customer SA ID</label>
+          <input type="text" id="Driver_name" class="form-control mb-4" placeholder="Id">
         </div>
         <div>
-          <label class="row d-flex justify-content-left">Reason</label>
-          <input type="text" id="Reason" class="form-control mb-4" placeholder="Reason">
+          <label class="row d-flex justify-content-left">Next of kin</label>
+          <input type="text" id="Reason" class="form-control mb-4" placeholder="NOK">
+        </div>
+
+        <div>
+          <label class="row d-flex justify-content-left">Number of days</label>
+          <input type="text" id="Fuel_out" class="form-control mb-4" placeholder="Days">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Fuel out</label>
-          <input type="text" id="Fuel_out" class="form-control mb-4" placeholder="Fuel out">
-        </div>
-        <div>
-            <label class="row d-flex justify-content-left">Km out</label>
+          <label class="row d-flex justify-content-left">Km out</label>
           <input type="text" id="Km_out" class="form-control mb-4" placeholder="Km out">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Damages</label>
+          <label class="row d-flex justify-content-left">Damages</label>
           <input type="text" id="Damage" class="form-control mb-4" placeholder="Damage">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Date time out</label>
+          <label class="row d-flex justify-content-left">Date time out</label>
           <input type="text" id="Data_out" class="form-control mb-4" placeholder="Date-Time out">
         </div>
 
@@ -98,19 +117,19 @@
           <input type="text" id="Reason" class="form-control mb-4" placeholder="Reason">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Fuel in</label>
+          <label class="row d-flex justify-content-left">Fuel in</label>
           <input type="text" id="Fuel_out" class="form-control mb-4" placeholder="Fuel in">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Km in</label>
+          <label class="row d-flex justify-content-left">Km in</label>
           <input type="text" id="Km_out" class="form-control mb-4" placeholder="Km in">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Damages</label>
+          <label class="row d-flex justify-content-left">Damages</label>
           <input type="text" id="Damage" class="form-control mb-4" placeholder="Damage">
         </div>
         <div>
-            <label class="row d-flex justify-content-left">Date time in</label>
+          <label class="row d-flex justify-content-left">Date time in</label>
           <input type="text" id="Data_out" class="form-control mb-4" placeholder="Date-Time in">
         </div>
 

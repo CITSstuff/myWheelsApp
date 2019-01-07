@@ -9,11 +9,12 @@ import { AppRoutes } from './app.routes.service';
 
 import { ViewsModule } from './views/views.module';
 import { SharedModule } from './shared/shared.module';
-import { MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
 import { ErrorModule } from './views/errors/error.module';
 
 // main layout
 import { NavigationModule } from './main-layout/navigation/navigation.module';
+import { MaterialModule } from './../app/views/material-module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
     BrowserAnimationsModule,
     NavigationModule,
     AppRoutes,
-    RouterModule, 
+    MaterialModule,
+    RouterModule,
     MatFormFieldModule,
     SharedModule,
     ViewsModule,

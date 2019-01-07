@@ -6,7 +6,7 @@ import {map, startWith} from 'rxjs/operators';
 export interface Client {
   dp: string;
   name: string;
-  tokens: string;
+  tokens: number;
 }
 
 @Component({
@@ -15,44 +15,54 @@ export interface Client {
   styleUrls: ['./reservation.component.scss']
 })
 
-export class ReservationComponent  {
-  clientCtrl = new FormControl();
+export class ReservationComponent implements OnInit {
+
+  /*clientCtrl = new FormControl();
   filteredClients: Observable<Client[]>;
 
   clients: Client[] = [
     {
       name: 'Arkansas',
-      tokens: '2.978M',
+      tokens: 2,
       dp: '../../../assets/img/noIMG.PNG'
     },
     {
       name: 'California',
-      tokens: '39.14M',
+      tokens: 3,
       dp: '../../../assets/img/noIMG.PNG'
     },
     {
       name: 'Florida',
-      tokens: '20.27M',
+      tokens: 20,
       dp: '../../../assets/img/noIMG.PNG'
     },
     {
       name: 'Texas',
-      tokens: '27.47M',
+      tokens: 27,
       dp: '../../../assets/img/noIMG.PNG'
     }
-  ];
+  ];*/
 
-  constructor() {
-    this.filteredClients = this.clientCtrl.valueChanges
+  constructor() {}
+
+  public isChecked = false;
+  myControl = new FormControl();
+  clientOptions: string[] = ['Olwethu', 'Ali', 'Nemza', 'Big client'];
+  filteredOptions: Observable<string[]>;
+
+
+  ngOnInit() {
+    this.isChecked = false;
+    this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
-        map(client => client ? this._filterClients(client) : this.clients.slice())
+        map(value => this._filter(value))
       );
   }
 
-  private _filterClients(value: string): Client[] {
+  private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.clients.filter(client => client.name.toLowerCase().indexOf(filterValue) === 0);
-  
-}}
+    return this.clientOptions.filter(client => client.toLowerCase().includes(filterValue));
+  }
+}

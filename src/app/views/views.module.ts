@@ -9,7 +9,6 @@ import { AgmCoreModule } from '@agm/core';
 import { CalendarModule } from 'angular-calendar';
 
 import { SharedModule } from '../shared/shared.module';
-
 import { FooterComponent } from '../main-layout/footer/footer.component';
 import { BasicTableComponent } from './tables/basic-table/basic-table.component';
 import { ModalsComponent } from './modals/modals.component';
@@ -34,17 +33,18 @@ import { ExtentionsComponent } from './extentions/extentions.component';
 import { TrackComponent } from './track/track.component';
 import { ClientComponent } from './client/client.component';
 import { ReservationComponent } from './reservation/reservation.component';
-import { MatAutocompleteModule } from '@angular/material';
+//import { MatAutocompleteModule, MatNativeDateModule, MatDatepickerModule } from '@angular/material';
+import {MaterialModule} from './material-module';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    MaterialModule,
     RouterModule,
     FormsModule,
     BrowserModule,
     ReactiveFormsModule,
-    MatAutocompleteModule,
     BrowserAnimationsModule,
     SharedModule,
     AgmCoreModule.forRoot({
@@ -89,7 +89,6 @@ import { MatAutocompleteModule } from '@angular/material';
     Map1Component,
     StatsCardComponent,
     ReactiveFormsModule,
-    MatAutocompleteModule,
     StatsCard2Component,    
     Dashboard1Component,
     GridComponent,
