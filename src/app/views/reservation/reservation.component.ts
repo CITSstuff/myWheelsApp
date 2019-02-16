@@ -44,7 +44,8 @@ export class ReservationComponent implements OnInit {
   ];*/
 
   constructor() {}
-
+  minDate = new Date();
+  // maxDate = new Date(this.minDate.setDate(this.minDate.getDate() + 1))
   public isChecked = false;
   myControl = new FormControl();
   clientOptions: string[] = ['Olwethu', 'Ali', 'Nemza', 'Big client'];

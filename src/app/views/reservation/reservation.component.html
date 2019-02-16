@@ -62,7 +62,7 @@
 
         <div>
           <label class="row d-flex justify-content-left">Customer SA ID</label>
-          <input type="text" id="Driver_name" class="form-control mb-4" placeholder="Id">
+          <input type="text" id="Driver_name" type="number" class="form-control mb-4" placeholder="Id">
         </div>
         <div>
           <label class="row d-flex justify-content-left">Next of kin</label>
@@ -79,13 +79,20 @@
         </div>
         <div>
           <label class="row d-flex justify-content-left">Damages</label>
-          <input type="text" id="Damage" class="form-control mb-4" placeholder="Damage">
+          <input type="text" id="Damage" class="form-control mb-4" value="none" placeholder="Damage">
         </div>
-        <div>
+        <!-- <div>
           <label class="row d-flex justify-content-left">Date time out</label>
           <input type="text" id="Data_out" class="form-control mb-4" placeholder="Date-Time out">
-        </div>
+        </div> -->
+        <div>
+        <label class="row d-flex justify-content-left">Select a date range</label>
+        
+        <app-date-picker></app-date-picker>
+        <span class="p-2">to:</span>
+        <app-date-picker></app-date-picker>
 
+        </div>
         <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-folder-open"></i></button>
         <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-edit"></i></button>
         <button class=" -roundedbtn btn-floating btn-blue-grey btn-lg"><i class="fa fa-check"></i></button>
