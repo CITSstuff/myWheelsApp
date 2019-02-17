@@ -36,6 +36,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 //import { MatAutocompleteModule, MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import {MaterialModule} from './material-module';
 import { DatePickerComponent } from 'app/components/date-picker/date-picker.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { DatePickerComponent } from 'app/components/date-picker/date-picker.comp
     RouterModule,
     FormsModule,
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
