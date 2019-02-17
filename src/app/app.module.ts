@@ -9,14 +9,16 @@ import { AppRoutes } from './app.routes.service';
 
 import { ViewsModule } from './views/views.module';
 import { SharedModule } from './shared/shared.module';
+import { MatFormFieldModule } from '@angular/material';
 import { ErrorModule } from './views/errors/error.module';
 
 // main layout
 import { NavigationModule } from './main-layout/navigation/navigation.module';
+import { MaterialModule } from './../app/views/material-module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -26,15 +28,15 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
     BrowserAnimationsModule,
     NavigationModule,
     AppRoutes,
+    MaterialModule,
     RouterModule,
-    FormsModule,
+    MatFormFieldModule,
     SharedModule,
     ViewsModule,
     ErrorModule,
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
 })
