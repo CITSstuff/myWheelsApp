@@ -18,7 +18,7 @@ import { MaterialModule } from './../app/views/material-module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({

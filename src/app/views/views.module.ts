@@ -35,6 +35,7 @@ import { ClientComponent } from './client/client.component';
 import { ReservationComponent } from './reservation/reservation.component';
 //import { MatAutocompleteModule, MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import {MaterialModule} from './material-module';
+import { DatePickerComponent } from 'app/components/date-picker/date-picker.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import {MaterialModule} from './material-module';
     CalendarModule.forRoot()
   ],
   declarations: [
+    DatePickerComponent,
     FooterComponent,
     BasicTableComponent,
     ModalsComponent,
@@ -81,6 +83,7 @@ import {MaterialModule} from './material-module';
 
   ],
   exports: [
+    DatePickerComponent,
     FooterComponent,
     BasicTableComponent,
     ModalsComponent,
