@@ -3,37 +3,36 @@
 
   <div class="col-4" *ngFor="let fleet of fleets">
 
-          <!--Card-->
-          <div class="card card-cascade narrower d-flex mb-5">
+    <!--Card-->
+    <div class="card card-cascade narrower d-flex mb-5">
 
-            <!--Card image-->
-            <div class="view overlay hm-white-slight">
-              <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg" class="img-fluid" alt="">
-              <a href="#">
-                <div class="mask"></div>
-              </a>
-            </div>
+      <!--Card image-->
+      <div class="view overlay hm-white-slight">
+        <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg" class="img-fluid" alt="">
+        <a href="#">
+          <div class="mask"></div>
+        </a>
+      </div>
 
-            <!--Card content-->
-            <div class="card-body">
-              <!--Title-->
-              <h4 class="card-title font-bold mb-3 px-2"><strong>{{fleet.registration}}</strong></h4>
-              <!--Text-->
-              <p class="card-text">{{fleet.about}}
-              </p>
-            </div>
+      <!--Card content-->
+      <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title font-bold mb-3 px-2"><strong>{{fleet.registration}}</strong></h4>
+        <!--Text-->
+        <p class="card-text">{{fleet.about}}
+        </p>
+      </div>
 
-            <!--Card footer-->
-            <div class="card-footer links-light">
-              <span class="right d-flex justify-content-center">
-                <a href="" class="waves-effect p-2">Live Preview <i class="fa fa-photo ml-1"></i></a>
-              </span>
-            </div>
+      <!--Card footer-->
+      <div class="card-footer links-light">
+        <span class="right d-flex justify-content-center">
+          <a href="" class="waves-effect p-2" title="view more fleet details">Live Preview <i class="fa fa-photo ml-1"></i></a>
+        </span>
+      </div>
 
-          </div>
-          <!--/.Card-->
-  
-          
+    </div>
+    <!--/.Card-->
+
   </div>
 
 </div>
