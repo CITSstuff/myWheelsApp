@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from 'app/services/client-service';
+import { Client } from 'app/interfaces/Cient';
 
 @Component({
   selector: 'app-client',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  public clients: Client[];
+
+  constructor(private clientService: ClientService) {
+    clientService.fetchClients().subscribe(res => {
+      this.clients = res
+    });
+
   }
 
+  ngOnInit() { }
 }
