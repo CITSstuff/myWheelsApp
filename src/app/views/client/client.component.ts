@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ClientService } from 'app/services/client-service';
 import { Client } from 'app/interfaces/Cient';
 
@@ -20,4 +20,10 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  // @HostListener('scroll', ['$event']) // for scroll events of the current element
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+    console.log('scrolling', event)
+  }
 }
