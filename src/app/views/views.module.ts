@@ -37,6 +37,8 @@ import { ReservationComponent } from './reservation/reservation.component';
 import {MaterialModule} from './material-module';
 import { DatePickerComponent } from 'app/components/date-picker/date-picker.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InlineEditComponent } from './../components/inline-edit/inline-edit.component';
+import { SatPopoverModule } from '@ncstate/sat-popover';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     RouterModule,
     FormsModule,
+    SatPopoverModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -82,6 +85,7 @@ import { HttpClientModule } from '@angular/common/http';
     ShadowComponent,
     Profile1Component,
     HelpComponent,
+    InlineEditComponent
 
   ],
   exports: [
