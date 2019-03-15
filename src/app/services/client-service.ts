@@ -1,21 +1,23 @@
 import { Injectable } from "@angular/core";
+
 import { Observable } from "rxjs";
+
+import { map } from "rxjs/operators";
+import { Client } from "app/interfaces/Cient";
 import { HttpClient } from "@angular/common/http";
-import { map, tap } from "rxjs/operators";
-import { Fleet } from "app/interfaces/Fleet";
 
 @Injectable({
     providedIn: 'root',
 })
-export class FleetService {
+export class ClientService {
 
-    fleet: Fleet;
+    fleet: Client;
     constructor(private http: HttpClient) {}
 
     // Make the HTTP request:
-    fetchFleet():Observable<[Fleet]> {
+    fetchClients():Observable<[Client]> {
         // const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.get<[Fleet]>('http://localhost:1406/assets/data/fleet.json').pipe(map(res => {
+        return this.http.get<[Client]>('http://localhost:1406/assets/data/clients.json').pipe(map(res => {
         return res;
         }))
     }

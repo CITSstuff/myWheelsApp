@@ -29,6 +29,7 @@
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
     "@fortawesome/fontawesome-free": "^5.3.1",
+    "@ncstate/sat-popover": "^3.2.0",
     "angular-bootstrap-md": "file:angular-bootstrap-md-6.2.3.tgz",
     "angular-calendar": "^0.25.2",
     "chart.js": "2.5.x",

@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { FleetService } from 'app/services/fleet-service';
+import { map, tap } from 'rxjs/operators';
+import { Fleet } from 'app/interfaces/Fleet';
+
+
 
 @Component({
   selector: 'app-fleet',
   templateUrl: './fleet.component.html',
   styleUrls: ['./fleet.component.scss']
 })
+
+
 export class FleetComponent implements OnInit {
   imagesBasic = [
     {
@@ -53,9 +60,16 @@ export class FleetComponent implements OnInit {
       description: 'Image 9'
     }
 ];
-  constructor() { }
+  //fleets = this.fleetService.fetchFleet()
+  public fleets: Fleet[];
 
-  ngOnInit() {
-  }
+constructor(private fleetService: FleetService) { 
+       fleetService.fetchFleet().subscribe(res=>{
+         this.fleets = res
+       });
+
+}
+
+  ngOnInit(){}
 
 }

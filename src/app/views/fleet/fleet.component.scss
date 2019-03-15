@@ -18,6 +18,10 @@
     font-weight: 600;
 }
 
+.card-title {
+    text-align: center;
+}
+
 .card.card-cascade {
     .view {
         box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15), 0 3px 12px 0 rgba(0, 0, 0, 0.15);
@@ -28,4 +32,8 @@ div.row.d-flex {
     
     display: block;
     flex-wrap: nowrap;
+}
+
+ul.pagination.pagination-circle.pg-blue.mb-0 {
+    justify-content: center
 }
