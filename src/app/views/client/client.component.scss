@@ -1,8 +1,12 @@
-.checked {
-    color: orange;
-}
-
-.my-scroller {
-    overflow-y: scroll;
-    position: static;
-}
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
