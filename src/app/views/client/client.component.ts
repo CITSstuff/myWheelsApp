@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
-import { ClientService } from 'app/services/client-service';
-import { Client } from 'app/interfaces/Cient';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Observable } from 'rxjs';
+import { User } from '../../interfaces/User';
+import { UserService } from '../../services/user-service';
 
 export interface UserData {
   id: string;
@@ -27,16 +28,21 @@ const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green',
 })
 export class ClientComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  users$: Observable<User[]>;
+  displayedColumns: string[] = ['id', 'name', 'email', 'role', 'color'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  constructor(private userService: UserService) {
+    this.users$ = this.userService.fetchClients(); // .subscribe(u => {  this.users$ = u});
+    this.users$.subscribe(r => {
+    console.log('users', r);
+
+    })
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
   }
@@ -55,6 +61,21 @@ export class ClientComponent implements OnInit {
   }
 }
 
+/** returns Users *
+function loadUsers(id: number): UserData {
+  this.clientService.fetchClients().subscribe(res => {
+    this.clients = res
+  });
+
+  return {
+    id: id.toString(),
+    name: name,
+    progress: Math.round(Math.random() * 100).toString(),
+    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+  };
+}
+*/
+
 /** Builds and returns a new User. */
 function createNewUser(id: number): UserData {
   const name =
@@ -68,23 +89,3 @@ function createNewUser(id: number): UserData {
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };
 }
-
-
-/*  public clients: Client[];
-
-  constructor(private clientService: ClientService) {
-    clientService.fetchClients().subscribe(res => {
-      this.clients = res
-    });
-
-  }
-
-  ngOnInit() { }
-
-  // @HostListener('scroll', ['$event']) // for scroll events of the current element
-  @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(event) {
-    console.log('scrolling', event)
-  }
-}
-*/

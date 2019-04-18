@@ -1,5 +1,5 @@
 
-export interface Client{ 
+export interface User{ 
   id: string,
   id_number: number,
   first_name: string,
