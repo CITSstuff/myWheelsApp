@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormControl } from '@angular/forms'; 
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -16,7 +16,8 @@ export interface Client {
 })
 
 export class ReservationComponent implements OnInit {
-
+    stateCtrl = new FormControl();
+    
   /*clientCtrl = new FormControl();
   filteredClients: Observable<Client[]>;
 
@@ -43,7 +44,8 @@ export class ReservationComponent implements OnInit {
     }
   ];*/
 
-  constructor() {}
+  constructor() {
+  }
   minDate = new Date();
   // maxDate = new Date(this.minDate.setDate(this.minDate.getDate() + 1))
   public isChecked = false;
@@ -59,6 +61,8 @@ export class ReservationComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
+    console.log("is ", this.stateCtrl.status);
+
   }
 
   private _filter(value: string): string[] {
