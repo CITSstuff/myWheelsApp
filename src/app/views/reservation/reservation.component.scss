@@ -10,3 +10,25 @@
     width: 100%;
   }
   
+  
+  /* new-client */
+  .new-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .new-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  .suffix-icon {
+    cursor: pointer;
+    vertical-align: bottom;
+    color: lighten(rgba(0, 0, 0, 0.54), 5%);
+  }
+ 

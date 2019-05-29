@@ -1,24 +1,73 @@
 <div class="res-main">
 
   <div class="existing-client-toggle mb-3">
-    <mat-slide-toggle
+    <mat-slide-toggle 
+    [color]="color"
     [checked]="stateCtrl.disabled"
     (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
     Existing User
   </mat-slide-toggle>
   </div>
 
-  <div class="existing-client px-3" *ngIf="stateCtrl.disabled">
+  <div class="existing-client px-3" *ngIf="stateCtrl.disabled; else newClient">
     <form class="existing-client-form">
       <mat-form-field class="existing-client-full-width">
-        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <input type="text" placeholder="Pick existing client" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{option}}
           </mat-option>
         </mat-autocomplete>
+        <mat-icon class="suffix-icon" matSuffix>perm_identity</mat-icon>
       </mat-form-field>
+    <br>
     </form>
-    
   </div>
+
+  <ng-template #newClient>
+    <form class="new-form px-3 mt-5">
+      <mat-form-field class="new-full-width">
+        <input matInput placeholder="Company (disabled)" disabled value="Google">
+      </mat-form-field>
+    
+      <table class="new-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="new-full-width">
+          <input matInput placeholder="First name">
+        </mat-form-field></td>
+        <td><mat-form-field class="new-full-width">
+          <input matInput placeholder="Long Last Name That Will Be Truncated">
+        </mat-form-field></td>
+      </tr></table>
+    
+      <p>
+        <mat-form-field class="new-full-width">
+          <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+        </mat-form-field>
+        <mat-form-field class="new-full-width">
+          <textarea matInput placeholder="Address 2"></textarea>
+        </mat-form-field>
+      </p>
+    
+      <table class="new-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="new-full-width">
+          <input matInput placeholder="City">
+        </mat-form-field></td>
+        <td><mat-form-field class="new-full-width">
+          <input matInput placeholder="State">
+        </mat-form-field></td>
+        <td><mat-form-field class="new-full-width">
+          <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+        </mat-form-field></td>
+      </tr></table>
+    </form>    
+  </ng-template>
+  <div class="w-50 px-3">
+    <label class="d-flex justify-content-left mt-1">Select a date range</label>
+    
+    <app-date-picker></app-date-picker>
+    <span class="p-2">to:</span>
+    <app-date-picker></app-date-picker>
+
+    </div>
 </div>
