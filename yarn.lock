@@ -763,6 +763,11 @@ angular-draggable-droppable@^3.0.0:
   dependencies:
     tslib "^1.9.0"
 
+angular-in-memory-web-api@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/angular-in-memory-web-api/-/angular-in-memory-web-api-0.8.0.tgz#6cb63c9e8e22c59383dfcccaf0512791400bf4e1"
+  integrity sha512-2n0YtCLFxZo4JePHvH6q8b7JmBmhZq44Ic8VaBPRSXE4vAmlKXHU+kI2quNa612EAETDRkZcvLOU8K8CkhIZgQ==
+
 angular-resizable-element@^3.0.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/angular-resizable-element/-/angular-resizable-element-3.2.4.tgz#f3d29b77ae72b6f9e359f5fba06821c353fe86d4"
