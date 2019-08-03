@@ -23,7 +23,6 @@ export class FleetComponent implements OnInit {
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   $selectedOption: string;
-  index: number;
   id: number;
 
   constructor(public httpClient: HttpClient,
@@ -60,11 +59,8 @@ export class FleetComponent implements OnInit {
     });
   }
 
-  startEdit(i: number, id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
+  startEdit(id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     this.id = id;
-    // index row is used just for debugging proposes and can be removed
-    this.index = i;
-    console.log(this.index);
     const dialogRef = this.dialog.open(EditDialogComponent, {
       data: {id: id, make: make, date_added: date_added, year: year, color: color, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
@@ -81,8 +77,8 @@ export class FleetComponent implements OnInit {
     });
   }
 
-  deleteItem(i: number, id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
-    this.index = i;
+  deleteItem(id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
+    
     this.id = id;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: {id: id, make: make, date_added: date_added, year: year, color: color, kms: kms, tank: tank, registration: registration, colour: colour, status: status}

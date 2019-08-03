@@ -90,12 +90,12 @@
         </button>
       </mat-header-cell>
 
-      <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="accent" (click)="startEdit(i, row.id, row.title, row.state, row.url, row.created_at, row.updated_at)">
+      <mat-cell *matCellDef="let row;">
+        <button mat-icon-button color="accent" (click)="startEdit(row.index, row.make, row.date_added, row.year, row.colour, row.kms, row.tank, row.registration, row.colour, row.status)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
 
-        <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
+        <button mat-icon-button color="accent" (click)="deleteItem(row.index, row.make, row.date_added, row.year, row.colour, row.kms, row.tank, row.registration, row.colour, row.status)">
           <mat-icon class="trash-can" aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>
