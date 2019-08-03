@@ -5,14 +5,12 @@ import {HttpClient} from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import {Issue} from '../../interfaces/issue';
 import {DataSource} from '@angular/cdk/collections';
 import {AddDialogComponent} from './../../dialogs/add/add.dialog.component';
 import {EditDialogComponent} from './../../dialogs/edit/edit.dialog.component';
 import {DeleteDialogComponent} from './../../dialogs/delete/delete.dialog.component';
-import {BehaviorSubject, fromEvent, merge, Observable} from 'rxjs';
-
-
+import {BehaviorSubject, fromEvent, merge, Observable, Subscription} from 'rxjs';
+import { Issue } from 'app/interfaces/Fleet';
 
 @Component({
   selector: 'app-fleet',
@@ -20,11 +18,11 @@ import {BehaviorSubject, fromEvent, merge, Observable} from 'rxjs';
   styleUrls: ['./fleet.component.scss']
 })
 
-
 export class FleetComponent implements OnInit {
-  displayedColumns = ['id', 'title', 'state', 'url', 'created_at', 'updated_at', 'actions'];
+  displayedColumns = ['id', 'make', 'date_added', 'year', 'kms', 'tank','registration', 'color', 'status', 'actions'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
+  $selectedOption: string;
   index: number;
   id: number;
 
@@ -62,13 +60,13 @@ export class FleetComponent implements OnInit {
     });
   }
 
-  startEdit(i: number, id: number, title: string, state: string, url: string, created_at: string, updated_at: string) {
+  startEdit(i: number, id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     this.id = id;
     // index row is used just for debugging proposes and can be removed
     this.index = i;
     console.log(this.index);
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      data: {id: id, title: title, state: state, url: url, created_at: created_at, updated_at: updated_at}
+      data: {id: id, make: make, date_added: date_added, year: year, color: color, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -83,11 +81,11 @@ export class FleetComponent implements OnInit {
     });
   }
 
-  deleteItem(i: number, id: number, title: string, state: string, url: string) {
+  deleteItem(i: number, id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     this.index = i;
     this.id = id;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {id: id, title: title, state: state, url: url}
+      data: {id: id, make: make, date_added: date_added, year: year, color: color, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -108,28 +106,15 @@ export class FleetComponent implements OnInit {
     this.paginator._changePageSize(this.paginator.pageSize);
   }
 
-
-  /*   // If you don't need a filter or a pagination this can be simplified, you just use code from else block
-    // OLD METHOD:
-    // if there's a paginator active we're using it for refresh
-    if (this.dataSource._paginator.hasNextPage()) {
-      this.dataSource._paginator.nextPage();
-      this.dataSource._paginator.previousPage();
-      // in case we're on last page this if will tick
-    } else if (this.dataSource._paginator.hasPreviousPage()) {
-      this.dataSource._paginator.previousPage();
-      this.dataSource._paginator.nextPage();
-      // in all other cases including active filter we do it like this
-    } else {
-      this.dataSource.filter = '';
-      this.dataSource.filter = this.filter.nativeElement.value;
-    }*/
-
-
+  public getSelectedOption = () => {
+    
+    console.log('something changed ', this.$selectedOption)
+    return this.$selectedOption;
+  }
 
   public loadData() {
     this.exampleDatabase = new DataService(this.httpClient);
-    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
+    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort, this);
     fromEvent(this.filter.nativeElement, 'keyup')
       // .debounceTime(150)
       // .distinctUntilChanged()
@@ -144,6 +129,7 @@ export class FleetComponent implements OnInit {
 
 export class ExampleDataSource extends DataSource<Issue> {
   _filterChange = new BehaviorSubject('');
+  
 
   get filter(): string {
     return this._filterChange.value;
@@ -158,7 +144,7 @@ export class ExampleDataSource extends DataSource<Issue> {
 
   constructor(public _exampleDatabase: DataService,
               public _paginator: MatPaginator,
-              public _sort: MatSort) {
+              public _sort: MatSort, public _sOption: FleetComponent) {
     super();
     // Reset to the first page when the user changes the filter.
     this._filterChange.subscribe(() => this._paginator.pageIndex = 0);
@@ -180,7 +166,8 @@ export class ExampleDataSource extends DataSource<Issue> {
     return merge(...displayDataChanges).pipe(map( () => {
         // Filter data
         this.filteredData = this._exampleDatabase.data.slice().filter((issue: Issue) => {
-          const searchStr = (issue.id + issue.title + issue.url + issue.created_at).toLowerCase();
+          const searchStr = this.genSearchStr(issue);
+          console.log('search string ', searchStr)
           return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
         });
 
@@ -195,8 +182,35 @@ export class ExampleDataSource extends DataSource<Issue> {
     ));
   }
 
-  disconnect() {}
+  genSearchStr = (issue: Issue) => {
+    
+    switch(this._sOption.getSelectedOption()) {
+      case 'year':
+          return (issue.year).toLowerCase();
+      case 'status':
+          return (issue.status).toLowerCase();
+      case 'index':
+          return issue.index.toString();
+      case 'registration':
+          return (issue.registration).toLowerCase();
+      case 'date_added':
+          return (issue.date_added).toLowerCase();
+      case 'colour':
+          return issue.color;
+      case 'tank':
+          return issue.tank;
+      case 'kms':
+          return issue.kms;
+      case 'make':
+          return (issue.make).toLowerCase();
+      default: {
+        return (issue.make + issue.date_added + issue.color + issue.registration + issue.year + issue.status
+           + issue.tank + issue.index + issue.kms).toLowerCase();
+      }
+    }
+  }
 
+  disconnect() {}
 
   /** Returns a sorted copy of the database data. */
   sortData(data: Issue[]): Issue[] {
@@ -210,11 +224,14 @@ export class ExampleDataSource extends DataSource<Issue> {
 
       switch (this._sort.active) {
         case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
-        case 'title': [propertyA, propertyB] = [a.title, b.title]; break;
-        case 'state': [propertyA, propertyB] = [a.state, b.state]; break;
-        case 'url': [propertyA, propertyB] = [a.url, b.url]; break;
-        case 'created_at': [propertyA, propertyB] = [a.created_at, b.created_at]; break;
-        case 'updated_at': [propertyA, propertyB] = [a.updated_at, b.updated_at]; break;
+        case 'make': [propertyA, propertyB] = [a.make, b.make]; break;
+        case 'date_added': [propertyA, propertyB] = [a.date_added, b.date_added]; break;
+        case 'year': [propertyA, propertyB] = [a.year, b.year]; break;
+        case 'colour': [propertyA, propertyB] = [a.color, b.color]; break;
+        case 'kms': [propertyA, propertyB] = [a.kms, b.kms]; break;
+        case 'tank': [propertyA, propertyB] = [a.tank, b.tank]; break;
+        case 'registration': [propertyA, propertyB] = [a.registration, b.registration]; break;
+        case 'status': [propertyA, propertyB] = [a.status, b.status]; break;
       }
 
       const valueA = isNaN(+propertyA) ? propertyA : +propertyA;

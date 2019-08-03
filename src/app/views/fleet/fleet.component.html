@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="d-block py-3 container mx-auto" color="primary">
   <span>Fleet Operations -:- </span>
   <span class="spacer"></span>
   Reload data -:-
@@ -10,9 +10,25 @@
 <div class="container mat-elevation-z8 px-0">
 
   <div class="form">
-    <mat-form-field floatPlaceholder="never" color="accent">
-      <input matInput #filter placeholder="Filter issues">
+    <mat-form-field class="w-75" floatPlaceholder="never" color="accent">
+      <input matInput #filter placeholder="Filter Fleet">
     </mat-form-field>
+    <mat-form-field class="w-25 pl-5">
+      <mat-label>Select Filter Option</mat-label>
+      <mat-select [(ngModel)]="$selectedOption" (selectionChange)="getSelectedOption()">
+        <mat-option>None</mat-option>
+        <mat-option value="index">Id</mat-option>
+        <mat-option value="make">Make</mat-option>
+        <mat-option value="date_Added">Date Added</mat-option>
+        <mat-option value="year">Year</mat-option>
+        <mat-option value="colour">Colour</mat-option>
+        <mat-option value="tank">Tank</mat-option>
+        <mat-option value="kms">Kmz</mat-option>
+        <mat-option value="registration">Registration</mat-option>
+        <mat-option value="status">Status</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
   </div>
 
   <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
@@ -23,32 +39,47 @@
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-      <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+      <mat-cell *matCellDef="let row" >{{row.index}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
+    <ng-container matColumnDef="make">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>MAKE</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.make}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="state">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.state}}</mat-cell>
+    <ng-container matColumnDef="date_added">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>DATE ADDED</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.date_added}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="url">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Url</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.url}}</mat-cell>
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>YEAR</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.year}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="created_at">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Created at</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.created_at}}</mat-cell>
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>COLOUR</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.color}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="updated_at">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Updated at</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.updated_at}}</mat-cell>
+    <ng-container matColumnDef="kms">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>KMZ</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.kms}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tank">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>TANK</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.tank}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="registration">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>REGISTRATION</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.registration}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.status}}</mat-cell>
     </ng-container>
 
     <!-- actions -->
@@ -65,7 +96,7 @@
         </button>
 
         <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
-          <mat-icon aria-label="Delete">delete</mat-icon>
+          <mat-icon class="trash-can" aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
