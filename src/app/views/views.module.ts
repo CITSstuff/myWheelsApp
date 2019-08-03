@@ -39,6 +39,10 @@ import { DatePickerComponent } from 'app/components/date-picker/date-picker.comp
 import { HttpClientModule } from '@angular/common/http';
 import { InlineEditComponent } from './../components/inline-edit/inline-edit.component';
 import { SatPopoverModule } from '@ncstate/sat-popover';
+import { DataService } from 'app/services/data.service';
+import { AddDialogComponent } from 'app/dialogs/add/add.dialog.component';
+import { EditDialogComponent } from 'app/dialogs/edit/edit.dialog.component';
+import { DeleteDialogComponent } from 'app/dialogs/delete/delete.dialog.component';
 
 
 @NgModule({
@@ -85,7 +89,10 @@ import { SatPopoverModule } from '@ncstate/sat-popover';
     ShadowComponent,
     Profile1Component,
     HelpComponent,
-    InlineEditComponent
+    InlineEditComponent,
+    AddDialogComponent,
+    EditDialogComponent,
+    DeleteDialogComponent
 
   ],
   exports: [
@@ -108,8 +115,12 @@ import { SatPopoverModule } from '@ncstate/sat-popover';
     ShadowComponent,
 
   ],
-  providers: [
-  FormsModule,],
+  entryComponents: [
+    AddDialogComponent,
+    EditDialogComponent,
+    DeleteDialogComponent
+  ],
+  providers: [DataService, FormsModule],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class ViewsModule { }
