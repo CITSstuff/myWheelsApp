@@ -22,7 +22,7 @@ export class FleetComponent implements OnInit {
   displayedColumns = ['id', 'make', 'date_added', 'year', 'kms', 'tank','registration', 'color', 'status', 'actions'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
-  $selectedOption: string;
+  selectedOption: string;
   id: number;
 
   constructor(public httpClient: HttpClient,
@@ -32,9 +32,6 @@ export class FleetComponent implements OnInit {
   @ViewChild('filter') filter: ElementRef;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  // @ViewChild(MatSort, {static: true}) sort: MatSort;
-  // @ViewChild('filter',  {static: true}) filter: ElementRef;
 
   ngOnInit() {
     this.loadData();
@@ -76,7 +73,7 @@ export class FleetComponent implements OnInit {
       }
     });
   }
-  //        'id', 'make', 'date_added', 'year', 'kms', 'tank','registration', 'status', 'colour' 
+  
   deleteItem(id: number, make: string, date_added: string, year: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     
     this.id = id;
@@ -103,9 +100,8 @@ export class FleetComponent implements OnInit {
   }
 
   public getSelectedOption = () => {
-    
-    console.log('something changed ', this.$selectedOption)
-    return this.$selectedOption;
+
+    return this.selectedOption;
   }
 
   public loadData() {
@@ -163,7 +159,6 @@ export class ExampleDataSource extends DataSource<Issue> {
         // Filter data
         this.filteredData = this._exampleDatabase.data.slice().filter((issue: Issue) => {
           const searchStr = this.genSearchStr(issue);
-          console.log('search string ', searchStr)
           return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
         });
 

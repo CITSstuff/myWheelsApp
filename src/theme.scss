@@ -17,3 +17,7 @@ $theme: mat-light-theme($primary, $accent);
 
   @include angular-material-theme($dark-theme);
 }
+
+button {
+  outline: none;
+}

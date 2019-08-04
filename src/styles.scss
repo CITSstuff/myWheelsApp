@@ -48,9 +48,10 @@ body {
   
   .button {
     color: #6b6868;
+    :hover { 
+      outline: none
+      }
   }
-  
-  
   
   .searchSection {
     width: 100%;
@@ -64,6 +65,7 @@ body {
     overflow-x: auto;
   }
   */
+
   .tableSection {
       display: block;
       width: 100%;
@@ -91,5 +93,9 @@ body {
   .formError {
     color: red;
     font-size: smaller;
+  }
+
+  .mat-footer-row, mat-row {
+    max-height: 70px
   }
   
