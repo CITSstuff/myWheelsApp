@@ -2,7 +2,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {Component, Inject} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {FormControl, Validators} from '@angular/forms';
-import {Issue} from '../../interfaces/issue';
+import {Issue} from '../../interfaces/Fleet';
 
 @Component({
   selector: 'app-add.dialog',
@@ -11,10 +11,11 @@ import {Issue} from '../../interfaces/issue';
 })
     
 export class AddDialogComponent {
+
+  dateToday = new Date().toDateString(); 
   constructor(public dialogRef: MatDialogRef<AddDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Issue,
-              public dataService: DataService) { }
-
+              public dataService: DataService) {} 
   formControl = new FormControl('', [
     Validators.required
     // Validators.email,
@@ -35,6 +36,10 @@ export class AddDialogComponent {
   }
 
   public confirmAdd(): void {
-    this.dataService.addIssue(this.data);
+    let newData: Issue = this.data;
+    newData.date_added = this.dateToday;
+    console.log('data to add: ', newData)
+    
+      this.dataService.addIssue(newData);
   }
 }
