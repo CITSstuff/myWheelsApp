@@ -59,10 +59,10 @@ export class FleetComponent implements OnInit {
     });
   }
 
-  startEdit(id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
+  startEdit(id: number, make: string, date_added: string, year: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     this.id = id;
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      data: {id: id, make: make, date_added: date_added, year: year, color: color, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
+      data: {id: id, make: make, date_added: date_added, year: year, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -76,12 +76,12 @@ export class FleetComponent implements OnInit {
       }
     });
   }
-
-  deleteItem(id: number, make: string, date_added: string, year: string, color: string, kms: string, tank: string, registration: string, colour: string, status: string) {
+  //        'id', 'make', 'date_added', 'year', 'kms', 'tank','registration', 'status', 'colour' 
+  deleteItem(id: number, make: string, date_added: string, year: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     
     this.id = id;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {id: id, make: make, date_added: date_added, year: year, color: color, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
+      data: {id: id, make: make, date_added: date_added, year: year, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
 
     dialogRef.afterClosed().subscribe(result => {

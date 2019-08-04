@@ -21,7 +21,7 @@
       <!--Contains mat-hint for characters count and has maxLengt set-->
       <div class="form">
         <mat-form-field color="accent">
-          <input matInput #inputstate class="form-control" placeholder="Date Added" [(ngModel)]="data.date_added" name="date_added"  >
+          <input matInput class="form-control" placeholder="Date Added" [(ngModel)]="data.date_added" name="date_added"  >
           <!-- <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
           <!-- <mat-hint align="end">{{inputstate.value?.length || 0}}/10</mat-hint> -->
         </mat-form-field>
@@ -41,7 +41,7 @@
   
       <div class="form">
         <mat-form-field color="accent">
-          <input matInput placeholder="Kilometers" [(ngModel)]="data.kms" maxlength="6" name="kms">
+          <input matInput #inputstate placeholder="Kilometers" [(ngModel)]="data.kms" maxlength="6" name="kms">
           <mat-hint align="end">{{inputstate.value?.length || 0}}/6</mat-hint>
         </mat-form-field>
       </div>
@@ -62,7 +62,7 @@
           <mat-form-field color="accent">
             <input matInput placeholder="Status" [(ngModel)]="data.status" name="status">
           </mat-form-field>
-        </div>
+      </div>
   
       <div mat-dialog-actions>
         <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Save</button>
