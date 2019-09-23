@@ -43,7 +43,7 @@ export class FleetComponent implements OnInit {
 
   addNew(issue: Issue) {
     const dialogRef = this.dialog.open(AddDialogComponent, {
-      data: {issue: issue }
+      data: {identifier: "fleet", issue: issue }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -59,7 +59,7 @@ export class FleetComponent implements OnInit {
   startEdit(id: number, make: string, date_added: string, year: string, kms: string, tank: string, registration: string, colour: string, status: string) {
     this.id = id;
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      data: {id: id, make: make, date_added: date_added, year: year, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
+      data: {identifier: "fleet", id: id, make: make, date_added: date_added, year: year, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -78,7 +78,7 @@ export class FleetComponent implements OnInit {
     
     this.id = id;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {id: id, make: make, date_added: date_added, year: year, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
+      data: {identifier: "fleet", id: id, make: make, date_added: date_added, year: year, kms: kms, tank: tank, registration: registration, colour: colour, status: status}
     });
 
     dialogRef.afterClosed().subscribe(result => {
