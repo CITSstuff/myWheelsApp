@@ -29,7 +29,7 @@
     "@fortawesome/fontawesome-free": "^5.3.1",
     "angular-bootstrap-md": "file:angular-bootstrap-md-6.2.3.tgz",
     "angular-calendar": "^0.25.2",
-    "chart.js": "2.5.x",
+    "chart.js": "2.9.x",
     "classlist.js": "1.1.x",
     "core-js": "2.4.x",
     "easy-pie-chart": "2.1.x",
